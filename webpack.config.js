@@ -4,10 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 const config = {
-  entry: [
-    'react-hot-loader/patch',
-    './src/index.js'
-  ],
+  entry: {
+    bundle: ['react-hot-loader/patch', './src/index.js']
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -67,12 +66,13 @@ const config = {
     ]
   },
   resolve: {
-    extensions: [
-      '.js',
-      '.jsx'
-    ],
+    modules: [path.resolve(__dirname, './src'), 'node_modules'],
+    extensions: ['.js', '.jsx', 'json'],
     alias: {
       'react-dom': '@hot-loader/react-dom'
+    },
+    fallback: {
+      util: require.resolve("util/")
     }
   },
   devServer: {
@@ -80,8 +80,9 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      appMountId: 'app',
-      filename: 'index.html'
+      // appMountId: 'app',
+      filename: 'index.html',
+      template: './src/index.html'
     }),
     new LodashModuleReplacementPlugin
   ]
