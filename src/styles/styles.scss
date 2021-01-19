@@ -1,4 +1,16 @@
-.test {
-  font-size: 28px;
-  color: black;
+.header {
+  height: 3rem;
+  width: 100vw;
+  background: #282c34;
+  display: flex;
+  
+  .main-title {
+    width: inherit;
+    display: flex;
+    font-size: .5rem;
+    color: #ccc;
+    align-items: center;
+    justify-content: center;
+  }
+  
 }

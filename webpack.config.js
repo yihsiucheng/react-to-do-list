@@ -1,4 +1,4 @@
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
@@ -69,8 +69,8 @@ const config = {
   resolve: {
     modules: [path.resolve(__dirname, './src'), 'node_modules'],
     extensions: ['.js', '.jsx', 'json'],
-    alias: {
-      'react-dom': '@hot-loader/react-dom'
+    alias: {      'react-dom': '@hot-loader/react-dom',
+      actions: path.resolve(__dirname, './src/actions')
     },
     fallback: {
       util: require.resolve("util/")

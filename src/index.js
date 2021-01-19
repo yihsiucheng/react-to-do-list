@@ -6,10 +6,10 @@ import { Router, Route, Switch } from 'react-router-dom';
 import App from './components/App';
 import store from './store';
 import history from './history';
-import './styles/styles.scss';
+import './styles/index.scss';
 
 
-const mountNode = document.getElementById("root");
+const mountNode = document.getElementById("app");
 
 ReactDOM.render(
   <HotReloader>
