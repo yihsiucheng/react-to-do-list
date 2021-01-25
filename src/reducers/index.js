@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import InputTextArea from './reducer_input_text_area';
+import ToDoList from './reducer_to_do_list';
 
 const rootReducer = combineReducers({
-  inputTextArea: InputTextArea,
+  toDoList: ToDoList,
 });
 
 export default rootReducer;

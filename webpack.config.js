@@ -1,5 +1,5 @@
-// const webpack = require('webpack');
-const path = require('path');
+const webpack = require('webpack'); 
+const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
@@ -8,7 +8,7 @@ const config = {
     bundle: ['react-hot-loader/patch', './src/index.js']
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -67,13 +67,18 @@ const config = {
     ]
   },
   resolve: {
-    modules: [path.resolve(__dirname, './src'), 'node_modules'],
+    modules: [resolve(__dirname, './src'), 'node_modules'],
     extensions: ['.js', '.jsx', 'json'],
-    alias: {      'react-dom': '@hot-loader/react-dom',
-      actions: path.resolve(__dirname, './src/actions')
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+      actions: resolve(__dirname, './src/actions')
     },
     fallback: {
-      util: require.resolve("util/")
+      util: require.resolve("util/"),
+      'path': require.resolve("path-browserify"),
+      'os': require.resolve("os-browserify/browser"),
+      'assert': require.resolve("assert/"),
+      'fs': false
     }
   },
   devServer: {
@@ -81,11 +86,11 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      // appMountId: 'app',
       filename: 'index.html',
-      template: './src/index.html'
+      // template: './src/index.html'
+      template: resolve(__dirname, './src/index.html')
     }),
-    new LodashModuleReplacementPlugin
+    new LodashModuleReplacementPlugin,
   ]
 };
 

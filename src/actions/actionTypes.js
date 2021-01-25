@@ -1,7 +1,7 @@
-export const INPUT_TEXT_AREA = 'INPUT_TEXT_AREA';
+export const INPUT_LIST = 'INPUT_LIST';
 
 const actions = {
-  INPUT_TEXT_AREA,
+  INPUT_LIST,
 };
 
 export default actions;

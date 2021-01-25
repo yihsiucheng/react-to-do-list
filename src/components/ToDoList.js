@@ -1,11 +1,14 @@
 import React from 'react';
 import InputSection from './InputSection';
+import ListContent from './ListContent';
 
 const ToDoList = () => {
   return (
-    <div className="list-menu">
+    <React.Fragment>
       <InputSection />
-    </div>
+      <div className="separate-line" />
+      <ListContent />
+    </React.Fragment>
   );
 }
 

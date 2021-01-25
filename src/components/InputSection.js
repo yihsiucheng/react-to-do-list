@@ -1,43 +1,52 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setInputTextArea } from 'actions';
+import InputTextArea from './InputTextArea';
+import InputButton from './InputButton';
+import { setInputList } from '../actions';
 
 const InputSection = () => {
   
   const dispatch = useDispatch();
   
-  const getPlaceHolder = () => {
-    return (`Type anything you want`);
+  const defaultPlaceholder = 'Type anything you want';
+  
+  const [inputText, setInputText] = useState('');
+  
+  const getText = (text) => {
+    setInputText(text);
+  }
+
+  const handleClearText = () => {
+    document.getElementsByClassName("input-info")[0].value = '';
+    setInputText('');
   }
   
-  const [placeholder, setPlaceholder] = useState(getPlaceHolder);
-  
-  const handleFocus = () => {
-    setPlaceholder('');
-  };
-
-  const handleBlur = () => {
-    setPlaceholder(getPlaceHolder);
-  };
-  
-  const handleChange = (text) => {
-    console.log('text', text);
-    dispatch(setInputTextArea(text));
-  };
-  
-  console.log('dispatch', dispatch);
+  const handleSubmitText = () => {
+    dispatch(setInputList(inputText));
+    handleClearText();
+  }
   
   return (
     <div className="input-area">
-      <textarea 
-      className="input-info" 
-      type="text"
-      spellCheck="false"
-      placeholder={placeholder}
-      onFocus={() => handleFocus()}
-      onBlur={() => handleBlur()}
-      onChange={(e) => handleChange(e.target.value)}
+      <InputTextArea 
+        className="input-info" 
+        type="text"
+        spellCheck="false"
+        placeholder={defaultPlaceholder}
+        getText={(text) => getText(text)}
       />
+      <div className="button-bar">
+        <InputButton 
+          className='clear-button'
+          btnText='清除'
+          handleFunction={handleClearText}
+        />
+        <InputButton 
+          className='submit-button'
+          btnText='確認'
+          handleFunction={handleSubmitText}
+        />
+      </div>
     </div>
   );
 }
