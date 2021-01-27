@@ -13,10 +13,7 @@
     "start": "webpack serve --hot --mode development --config webpack.config.js --port 3000"
   },
   "dependencies": {
-    "assert": "^2.0.0",
     "lodash": "^4.17.20",
-    "os-browserify": "^0.3.0",
-    "path-browserify": "^1.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-hot-loader": "^4.13.0",

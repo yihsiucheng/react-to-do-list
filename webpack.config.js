@@ -75,10 +75,10 @@ const config = {
     },
     fallback: {
       util: require.resolve("util/"),
-      'path': require.resolve("path-browserify"),
-      'os': require.resolve("os-browserify/browser"),
-      'assert': require.resolve("assert/"),
-      'fs': false
+      // 'path': require.resolve("path-browserify"),
+      // 'os': require.resolve("os-browserify/browser"),
+      // 'assert': require.resolve("assert/"),
+      // 'fs': false
     }
   },
   devServer: {
@@ -87,8 +87,8 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      // template: './src/index.html'
-      template: resolve(__dirname, './src/index.html')
+      template: './src/index.html'
+      // template: resolve(__dirname, './src/index.html')
     }),
     new LodashModuleReplacementPlugin,
   ]

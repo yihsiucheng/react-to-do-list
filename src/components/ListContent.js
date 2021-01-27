@@ -1,29 +1,35 @@
-import { render } from 'node-sass';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 const ListContent = () => {
-  // const toDoList = useSelector((state) => state.toDoList);
   
-  // useEffect(() => {
-    
-  // }, [toDoList])
+  const toDoList = useSelector((state) => state.toDoList);
   
+  const checkBoxStatus = Array(toDoList.length).fill(false);
+  
+  const updateCheckBoxStatus = (index) => {
+    checkBoxStatus[index] = !checkBoxStatus[index];
+  }
+  
+  console.log('checkBoxStatus', checkBoxStatus);
+
   const renderList = () => {
-    return toDoList.map((content) => {
+    return toDoList.map((content, index) => {
       return (
-        <div></div>
+        <li key={`list_${index}`} className="list">
+          <div className="check-box" onClick={(index) => updateCheckBoxStatus(index)}></div>
+          <div className="list-item">{content}</div>
+        </li>
       );
     })
   }
   
   return (
-    <div className="list-content">
-      {/* {renderList} */}
-    </div>
+    <ul className="list-content">
+      {renderList()}
+    </ul>
   );
 }
 
 export default ListContent;
-
 

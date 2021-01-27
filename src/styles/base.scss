@@ -25,6 +25,15 @@ body {
   width: 100vw;
 }
 
+ul {
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+}
+
 h1 {
   margin: 0;
   font-weight: normal;
