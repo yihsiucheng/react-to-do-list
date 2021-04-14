@@ -22,6 +22,9 @@ const InputSection = () => {
   }
   
   const handleSubmitText = () => {
+    if (inputText.length === 0) {
+      return;
+    }
     dispatch(setInputList(inputText));
     handleClearText();
   }
@@ -37,13 +40,13 @@ const InputSection = () => {
       />
       <div className="button-bar">
         <InputButton 
-          className='clear-button'
+          className='button clear-button'
           btnText='清除'
           handleFunction={handleClearText}
         />
         <InputButton 
-          className='submit-button'
-          btnText='確認'
+          className='button submit-button'
+          btnText='新增'
           handleFunction={handleSubmitText}
         />
       </div>

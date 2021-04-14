@@ -9,7 +9,7 @@ import history from './history';
 import './styles/index.scss';
 
 
-const mountNode = document.getElementById("app");
+const mountNode = document.querySelector('.app');
 
 ReactDOM.render(
   <HotReloader>

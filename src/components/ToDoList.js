@@ -1,12 +1,13 @@
 import React from 'react';
 import InputSection from './InputSection';
 import ListContent from './ListContent';
+import ToolBar from './ToolBar';
 
 const ToDoList = () => {
   return (
     <React.Fragment>
       <InputSection />
-      <div className="separate-line" />
+      <ToolBar />
       <ListContent />
     </React.Fragment>
   );
